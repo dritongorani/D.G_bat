@@ -379,8 +379,6 @@ function initServiceInteractions() {
 
   const checkIcon =
     '<svg class="w-5 h-5 text-kos-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
-  const arrowIcon =
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7v8"/></svg>';
 
   let activeKey = null;
   let lastFocused = null;
@@ -426,26 +424,17 @@ function initServiceInteractions() {
     if (!data) return;
 
     card.dataset.service = key;
-    card.setAttribute('aria-label', `Découvrir ${data.title} — ouvrir la fiche service`);
 
-    const arrow = document.createElement('span');
-    arrow.className = 'service-card-arrow';
-    arrow.setAttribute('aria-hidden', 'true');
-    arrow.innerHTML = arrowIcon;
-    card.appendChild(arrow);
+    const cta = card.querySelector('.service-card-cta');
+    if (cta) {
+      cta.setAttribute('aria-label', `Cliquez pour plus d'infos sur ${data.title}`);
+    }
 
     card.addEventListener('mouseenter', () => grid.classList.add('is-hovering-card'));
     card.addEventListener('mouseleave', () => grid.classList.remove('is-hovering-card'));
 
-    const open = () => openServiceModal(key, card);
-
+    const open = () => openServiceModal(key, cta || card);
     card.addEventListener('click', open);
-    card.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        open();
-      }
-    });
   });
 
   modal.querySelectorAll('[data-modal-close], .service-modal-close').forEach((el) => {

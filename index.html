@@ -12,16 +12,24 @@
 <meta name="robots" content="index, follow">
 <meta name="author" content="KoSBoS Bat">
 <meta name="language" content="French">
-<link rel="canonical" href="https://www.kosbosbat.fr/">
+<link rel="canonical" href="https://kosbos.fr/">
+
+<!-- Géolocalisation SEO -->
+<meta name="geo.region" content="FR-ARA">
+<meta name="geo.placename" content="Meximieux / Lyon">
+<meta name="geo.position" content="45.9044;5.1946">
+<meta name="ICBM" content="45.9044, 5.1946">
+<meta name="geo.country" content="FR">
 
 <!-- Open Graph / réseaux sociaux -->
 <meta property="og:type" content="business.business">
-<meta property="og:url" content="https://www.kosbosbat.fr/">
+<meta property="og:url" content="https://kosbos.fr/">
 <meta property="og:title" content="KoSBoS Bat — Rénovation Générale, Électricité & Plomberie à Lyon (69), Ain (01) & Isère (38)">
 <meta property="og:description" content="Artisan rénovation à Lyon, dans l'Ain (01) et en Isère (38) : électricité, plomberie, carrelage, placo, peinture. Rénovation complète de A à Z pour particuliers et professionnels. Devis gratuit sous 24h.">
 <meta property="og:site_name" content="KoSBoS Bat">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:image" content="https://www.kosbosbat.fr/assets/og-kosbosbat.jpg">
+<meta property="og:image" content="https://kosbos.fr/assets/og-kosbosbat.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="KoSBoS Bat — artisan rénovation générale à Lyon, Ain et Isère">
@@ -29,7 +37,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="KoSBoS Bat — Rénovation Générale, Électricité & Plomberie à Lyon (69), Ain (01) & Isère (38)">
 <meta name="twitter:description" content="Artisan rénovation à Lyon, Ain (01) et Isère (38) : électricité, plomberie, carrelage, placo, peinture. Devis gratuit sous 24h.">
-<meta name="twitter:image" content="https://www.kosbosbat.fr/assets/og-kosbosbat.jpg">
+<meta name="twitter:image" content="https://kosbos.fr/assets/og-kosbosbat.png">
+<meta name="twitter:image:alt" content="KoSBoS Bat — artisan rénovation générale à Lyon, Ain et Isère">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -156,83 +165,123 @@
 
     <div id="services-grid" class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <!-- Électricité -->
-      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer" tabindex="0" role="button" aria-haspopup="dialog">
+      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer">
         <div class="w-12 h-12 bg-kos-accent/10 rounded-xl flex items-center justify-center text-kos-accent mb-4 group-hover:bg-kos-accent group-hover:text-white transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
         <h3 class="text-lg font-bold text-kos-dark mb-3">Électricité & Mise aux normes à Lyon et dans l'Ain</h3>
         <p class="text-gray-600 text-sm leading-relaxed mb-4">Installation électrique neuve, rénovation complète, mise aux normes NF C 15-100, dépannage et mise en sécurité. Votre artisan électricien plombier intervient à Lyon, Meximieux et dans tout le 69 / 01 / 38.</p>
         <span class="text-xs font-bold text-kos-accent uppercase tracking-wider">Artisan électricien</span>
+
+        <button type="button" class="service-card-cta mt-5 inline-flex items-center justify-center gap-2 w-full border border-gray-300 text-kos-dark text-xs font-bold uppercase tracking-wider px-3 py-2.5 rounded-lg hover:bg-kos-accent hover:text-white hover:border-kos-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kos-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white" aria-haspopup="dialog" aria-label="Cliquez pour plus d'infos sur ce service">
+          Cliquez pour plus d'infos
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
       </article>
 
       <!-- Plomberie -->
-      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer" tabindex="0" role="button" aria-haspopup="dialog">
+      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer">
         <div class="w-12 h-12 bg-kos-accent/10 rounded-xl flex items-center justify-center text-kos-accent mb-4 group-hover:bg-kos-accent group-hover:text-white transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2s6 7 6 11a6 6 0 11-12 0c0-4 6-11 6-11z"/></svg>
         </div>
         <h3 class="text-lg font-bold text-kos-dark mb-3">Plomberie & Sanitaires à Meximieux et en Isère</h3>
         <p class="text-gray-600 text-sm leading-relaxed mb-4">Création et rénovation de salles de bain, installation sanitaires, recherche de fuites, remplacement de robinetterie et réseaux d'eau dans le Rhône, l'Ain et l'Isère.</p>
         <span class="text-xs font-bold text-kos-accent uppercase tracking-wider">Artisan plombier</span>
+
+        <button type="button" class="service-card-cta mt-5 inline-flex items-center justify-center gap-2 w-full border border-gray-300 text-kos-dark text-xs font-bold uppercase tracking-wider px-3 py-2.5 rounded-lg hover:bg-kos-accent hover:text-white hover:border-kos-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kos-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white" aria-haspopup="dialog" aria-label="Cliquez pour plus d'infos sur ce service">
+          Cliquez pour plus d'infos
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
       </article>
 
       <!-- Carrelage -->
-      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer" tabindex="0" role="button" aria-haspopup="dialog">
+      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer">
         <div class="w-12 h-12 bg-kos-accent/10 rounded-xl flex items-center justify-center text-kos-accent mb-4 group-hover:bg-kos-accent group-hover:text-white transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h16v16H4zM4 10h16M4 16h16M10 4v16M16 4v16"/></svg>
         </div>
         <h3 class="text-lg font-bold text-kos-dark mb-3">Carrelage & Faïence à Lyon et en Isère</h3>
         <p class="text-gray-600 text-sm leading-relaxed mb-4">Pose de carrelage sol et mur, faïence salle de bain et cuisine, grands formats, mosaïque à Lyon, Meximieux et Grenoble. Poseur carrelage soigné pour des finitions parfaites.</p>
         <span class="text-xs font-bold text-kos-accent uppercase tracking-wider">Poseur carrelage</span>
+
+        <button type="button" class="service-card-cta mt-5 inline-flex items-center justify-center gap-2 w-full border border-gray-300 text-kos-dark text-xs font-bold uppercase tracking-wider px-3 py-2.5 rounded-lg hover:bg-kos-accent hover:text-white hover:border-kos-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kos-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white" aria-haspopup="dialog" aria-label="Cliquez pour plus d'infos sur ce service">
+          Cliquez pour plus d'infos
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
       </article>
 
       <!-- Placo -->
-      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer" tabindex="0" role="button" aria-haspopup="dialog">
+      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer">
         <div class="w-12 h-12 bg-kos-accent/10 rounded-xl flex items-center justify-center text-kos-accent mb-4 group-hover:bg-kos-accent group-hover:text-white transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 4l6 6-2 2-6-6 2-2zM12 6L4 14v4h4l8-8-4-4z"/></svg>
         </div>
         <h3 class="text-lg font-bold text-kos-dark mb-3">Placo & Isolation dans le 69, 01 et 38</h3>
         <p class="text-gray-600 text-sm leading-relaxed mb-4">Pose de placo, cloisons sèches, isolation thermique et phonique, faux plafonds et plâtrerie à Lyon, dans l'Ain et en Isère. Redistribuez vos espaces en toute sérénité.</p>
         <span class="text-xs font-bold text-kos-accent uppercase tracking-wider">Plâtrier plaquiste</span>
+
+        <button type="button" class="service-card-cta mt-5 inline-flex items-center justify-center gap-2 w-full border border-gray-300 text-kos-dark text-xs font-bold uppercase tracking-wider px-3 py-2.5 rounded-lg hover:bg-kos-accent hover:text-white hover:border-kos-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kos-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white" aria-haspopup="dialog" aria-label="Cliquez pour plus d'infos sur ce service">
+          Cliquez pour plus d'infos
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
       </article>
 
       <!-- Peinture -->
-      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer" tabindex="0" role="button" aria-haspopup="dialog">
+      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer">
         <div class="w-12 h-12 bg-kos-accent/10 rounded-xl flex items-center justify-center text-kos-accent mb-4 group-hover:bg-kos-accent group-hover:text-white transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4l5 5-9 9H6v-5l9-9zM13 6l5 5"/></svg>
         </div>
         <h3 class="text-lg font-bold text-kos-dark mb-3">Peinture & Enduits à Lyon et en Auvergne-Rhône-Alpes</h3>
         <p class="text-gray-600 text-sm leading-relaxed mb-4">Peinture intérieure, enduits de lissage, rafraîchissement de murs et plafonds à Lyon, dans l'Ain et en Isère. Finitions professionnelles pour un intérieur moderne.</p>
         <span class="text-xs font-bold text-kos-accent uppercase tracking-wider">Peintre en bâtiment</span>
+
+        <button type="button" class="service-card-cta mt-5 inline-flex items-center justify-center gap-2 w-full border border-gray-300 text-kos-dark text-xs font-bold uppercase tracking-wider px-3 py-2.5 rounded-lg hover:bg-kos-accent hover:text-white hover:border-kos-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kos-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white" aria-haspopup="dialog" aria-label="Cliquez pour plus d'infos sur ce service">
+          Cliquez pour plus d'infos
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
       </article>
 
       <!-- Sols -->
-      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer" tabindex="0" role="button" aria-haspopup="dialog">
+      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer">
         <div class="w-12 h-12 bg-kos-accent/10 rounded-xl flex items-center justify-center text-kos-accent mb-4 group-hover:bg-kos-accent group-hover:text-white transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18M7 6v12M17 6v12"/></svg>
         </div>
         <h3 class="text-lg font-bold text-kos-dark mb-3">Sols (Parquet, Lino) à Lyon, Ain et Isère</h3>
         <p class="text-gray-600 text-sm leading-relaxed mb-4">Pose de parquet massif ou contrecollé, linoléum, sol souple et carrelage toutes pièces dans le Rhône, l'Ain et l'Isère. Préparation des supports pour une tenue parfaite.</p>
         <span class="text-xs font-bold text-kos-accent uppercase tracking-wider">Revêtement de sol</span>
+
+        <button type="button" class="service-card-cta mt-5 inline-flex items-center justify-center gap-2 w-full border border-gray-300 text-kos-dark text-xs font-bold uppercase tracking-wider px-3 py-2.5 rounded-lg hover:bg-kos-accent hover:text-white hover:border-kos-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kos-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white" aria-haspopup="dialog" aria-label="Cliquez pour plus d'infos sur ce service">
+          Cliquez pour plus d'infos
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
       </article>
 
       <!-- Murs & Plafonds -->
-      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer" tabindex="0" role="button" aria-haspopup="dialog">
+      <article class="service-card bg-white p-6 rounded-2xl border border-gray-200 shadow-sm group cursor-pointer">
         <div class="w-12 h-12 bg-kos-accent/10 rounded-xl flex items-center justify-center text-kos-accent mb-4 group-hover:bg-kos-accent group-hover:text-white transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 21V3h16v18M4 9h16M4 15h16M10 3v6M15 9v6M9 15v6"/></svg>
         </div>
         <h3 class="text-lg font-bold text-kos-dark mb-3">Murs & Plafonds dans le Rhône, l'Ain et l'Isère</h3>
         <p class="text-gray-600 text-sm leading-relaxed mb-4">Réfection complète de murs et plafonds, enduits, ratissage et finitions à Lyon, Meximieux et Grenoble. Préparation des supports avant peinture ou revêtements muraux.</p>
         <span class="text-xs font-bold text-kos-accent uppercase tracking-wider">Rénovation murs</span>
+
+        <button type="button" class="service-card-cta mt-5 inline-flex items-center justify-center gap-2 w-full border border-gray-300 text-kos-dark text-xs font-bold uppercase tracking-wider px-3 py-2.5 rounded-lg hover:bg-kos-accent hover:text-white hover:border-kos-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kos-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white" aria-haspopup="dialog" aria-label="Cliquez pour plus d'infos sur ce service">
+          Cliquez pour plus d'infos
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
       </article>
 
       <!-- Rénovation complète -->
-      <article class="service-card bg-gradient-to-br from-kos-dark to-kos-primary p-6 rounded-2xl border border-kos-accent shadow-lg group cursor-pointer" tabindex="0" role="button" aria-haspopup="dialog">
+      <article class="service-card bg-gradient-to-br from-kos-dark to-kos-primary p-6 rounded-2xl border border-kos-accent shadow-lg group cursor-pointer">
         <div class="w-12 h-12 bg-kos-accent rounded-xl flex items-center justify-center text-white mb-4">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l9-9 9 9M5 10v11h14V10M9 21v-6h6v6"/></svg>
         </div>
         <h3 class="text-lg font-bold text-white mb-3">Rénovation complète A à Z à Lyon, Ain et Isère</h3>
         <p class="text-gray-200 text-sm leading-relaxed mb-4">Rénovation intérieure d'appartement et de maison du sol au plafond à Lyon, dans l'Ain et en Isère, pour particuliers et professionnels. Un seul interlocuteur coordonne tous les corps d'état.</p>
         <span class="text-xs font-bold text-kos-accent uppercase tracking-wider">Tous corps d'état</span>
+
+        <button type="button" class="service-card-cta mt-5 inline-flex items-center justify-center gap-2 w-full border border-white/30 text-white text-xs font-bold uppercase tracking-wider px-3 py-2.5 rounded-lg hover:bg-kos-accent hover:text-white hover:border-kos-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kos-accent focus-visible:ring-offset-2 focus-visible:ring-offset-kos-dark" aria-haspopup="dialog" aria-label="Cliquez pour plus d'infos sur ce service">
+          Cliquez pour plus d'infos
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
       </article>
     </div>
   </div>
@@ -576,7 +625,7 @@
     <div class="border-t border-gray-700 pt-8 text-center text-xs text-gray-500">
       &copy; 2026 KoSBoS Bat — Artisan tous corps d'état. Tous droits réservés.
       <br>
-      <a href="#" class="text-kos-accent hover:text-white transition-colors">Mentions légales</a> • 
+      <a href="#" class="text-kos-accent hover:text-white transition-colors">Mentions légales</a> •
       <a href="#" class="text-kos-accent hover:text-white transition-colors">Politique de confidentialité</a>
     </div>
   </div>
@@ -599,11 +648,11 @@
 {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
-  "@id": "https://www.kosbosbat.fr/#business",
+  "@id": "https://kosbos.fr/#business",
   "name": "KoSBoS Bat",
   "legalName": "KoSBoS Bat",
-  "description": "Artisan tous corps d'état spécialisé dans la rénovation générale, l'électricité et la plomberie à Lyon (69), dans l'Ain (01) et en Isère (38).",
-  "url": "https://www.kosbosbat.fr/",
+  "description": "Artisan tous corps d'état à Meximieux, Lyon et dans la région Auvergne-Rhône-Alpes : rénovation générale, électricité, plomberie, carrelage, placo et peinture pour particuliers et professionnels dans le Rhône (69), l'Ain (01) et l'Isère (38).",
+  "url": "https://kosbos.fr/",
   "telephone": "+33603439954",
   "contactPoint": {
     "@type": "ContactPoint",
@@ -614,11 +663,16 @@
   },
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Adresse à compléter",
-    "addressLocality": "Lyon",
+    "streetAddress": "Meximieux",
+    "addressLocality": "Meximieux",
     "addressRegion": "Auvergne-Rhône-Alpes",
-    "postalCode": "69000",
+    "postalCode": "01800",
     "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.9044,
+    "longitude": 5.1946
   },
   "areaServed": [
     {
@@ -649,8 +703,8 @@
       ]
     }
   ],
-  "image": "https://www.kosbosbat.fr/assets/logo-kosbosbat.jpg",
-  "logo": "https://www.kosbosbat.fr/assets/logo-kosbosbat.jpg",
+  "image": "https://kosbos.fr/assets/og-kosbosbat.png",
+  "logo": "https://kosbos.fr/assets/logo-kosbosbat.png",
   "priceRange": "€€",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -682,8 +736,7 @@
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
     "opens": "08:00",
     "closes": "19:00"
-  },
-  "sameAs": ["https://www.google.com/maps","https://www.facebook.com/","https://www.instagram.com/"]
+  }
 }
 </script>
 

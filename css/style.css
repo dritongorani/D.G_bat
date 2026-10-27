@@ -227,30 +227,6 @@ html {
   border-color: rgba(232, 163, 61, 0.6);
 }
 
-.service-card-arrow {
-  position: absolute;
-  bottom: 1.15rem;
-  right: 1.15rem;
-  width: 1.35rem;
-  height: 1.35rem;
-  color: #e8a33d;
-  opacity: 0;
-  transform: translate(-4px, 4px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  pointer-events: none;
-}
-
-.service-card-arrow svg {
-  width: 100%;
-  height: 100%;
-}
-
-.service-card:hover .service-card-arrow,
-.service-card:focus-visible .service-card-arrow {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
 @media (hover: hover) and (pointer: fine) {
   .services-grid.is-ready .service-card.is-visible:hover {
     transform: translateY(-8px) scale(1.02);

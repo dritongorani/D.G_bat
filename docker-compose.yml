@@ -7,6 +7,10 @@ services:
     volumes:
       - ./index.html:/usr/share/nginx/html/index.html:ro
       - ./realisations.html:/usr/share/nginx/html/realisations.html:ro
+      - ./robots.txt:/usr/share/nginx/html/robots.txt:ro
+      - ./sitemap.xml:/usr/share/nginx/html/sitemap.xml:ro
+      - ./CNAME:/usr/share/nginx/html/CNAME:ro
+      - ./assets:/usr/share/nginx/html/assets:ro
       - ./js:/usr/share/nginx/html/js:ro
       - ./css:/usr/share/nginx/html/css:ro
       - ./nos-realisations:/usr/share/nginx/html/nos-realisations:ro
