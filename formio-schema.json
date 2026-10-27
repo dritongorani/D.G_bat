@@ -1,0 +1,207 @@
+{
+  "title": "Devis Gratuit - KoSBoS Bat",
+  "display": "form",
+  "type": "form",
+  "components": [
+    {
+      "type": "panel",
+      "label": "Vos coordonnées",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "textfield",
+          "key": "nom",
+          "label": "Nom",
+          "placeholder": "Dupont",
+          "validate": {
+            "required": true
+          },
+          "input": true
+        },
+        {
+          "type": "textfield",
+          "key": "prenom",
+          "label": "Prénom",
+          "placeholder": "Jean",
+          "validate": {
+            "required": true
+          },
+          "input": true
+        },
+        {
+          "type": "phone",
+          "key": "telephone",
+          "label": "Numéro de téléphone",
+          "placeholder": "06 00 00 00 00",
+          "validate": {
+            "required": true
+          },
+          "input": true
+        },
+        {
+          "type": "email",
+          "key": "email",
+          "label": "Adresse e-mail",
+          "placeholder": "jean.dupont@email.com",
+          "validate": {
+            "required": true
+          },
+          "input": true
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "label": "Détails du chantier",
+      "collapsible": false,
+      "components": [
+        {
+          "type": "textfield",
+          "key": "adresseChantier",
+          "label": "Adresse / Ville du chantier",
+          "placeholder": "12 Rue de la Paix, 75002 Paris",
+          "validate": {
+            "required": true
+          },
+          "input": true
+        },
+        {
+          "type": "checkboxes",
+          "key": "typesTravaux",
+          "label": "Type de travaux",
+          "validate": {
+            "required": true
+          },
+          "input": true,
+          "values": [
+            {
+              "label": "Électricité & Mise aux normes",
+              "value": "electricite"
+            },
+            {
+              "label": "Plomberie & Sanitaires",
+              "value": "plomberie"
+            },
+            {
+              "label": "Carrelage & Faïence",
+              "value": "carrelage"
+            },
+            {
+              "label": "Placo & Isolation / Faux plafonds",
+              "value": "placo"
+            },
+            {
+              "label": "Peinture & Enduits",
+              "value": "peinture"
+            },
+            {
+              "label": "Sols (Parquet, Lino, Carrelage)",
+              "value": "sols"
+            },
+            {
+              "label": "Murs & Plafonds",
+              "value": "mursPlafonds"
+            },
+            {
+              "label": "Rénovation complète de A à Z",
+              "value": "renovationComplete"
+            }
+          ]
+        },
+        {
+          "type": "number",
+          "key": "surfaceEstimee",
+          "label": "Surface estimée (m²)",
+          "placeholder": "Ex: 80",
+          "validate": {
+            "min": 1
+          },
+          "input": true
+        },
+        {
+          "type": "select",
+          "key": "budgetApproximatif",
+          "label": "Budget approximatif",
+          "dataSrc": "values",
+          "values": [
+            {
+              "label": "Moins de 5 000 €",
+              "value": "moins5000"
+            },
+            {
+              "label": "5 000 € - 15 000 €",
+              "value": "5k15k"
+            },
+            {
+              "label": "15 000 € - 30 000 €",
+              "value": "15k30k"
+            },
+            {
+              "label": "30 000 € - 60 000 €",
+              "value": "30k60k"
+            },
+            {
+              "label": "Plus de 60 000 €",
+              "value": "plus60k"
+            },
+            {
+              "label": "Non défini / À discuter",
+              "value": "nonDefini"
+            }
+          ],
+          "input": true
+        },
+        {
+          "type": "textarea",
+          "key": "descriptionProjet",
+          "label": "Description du projet",
+          "placeholder": "Décrivez votre projet de rénovation (pièces concernées, contraintes, délais souhaités…)",
+          "rows": 5,
+          "validate": {
+            "required": true
+          },
+          "input": true
+        },
+        {
+          "type": "file",
+          "key": "photosChantier",
+          "label": "Photos du chantier (facultatif)",
+          "description": "Ajoutez jusqu'à 5 photos pour affiner le devis",
+          "input": true
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "key": "submitDevis",
+      "label": "Demander mon devis gratuit",
+      "theme": "primary",
+      "size": "large",
+      "block": true,
+      "input": true
+    }
+  ],
+  "settings": {
+    "submitText": "Envoyer ma demande",
+    "showAlert": true,
+    "alertMessage": "Votre demande de devis a bien été envoyée. Nous vous recontactons sous 24h !"
+  },
+  "access": [
+    {
+      "type": "createAll",
+      "roles": ["admin"]
+    },
+    {
+      "type": "readAll",
+      "roles": ["admin"]
+    },
+    {
+      "type": "readAll",
+      "roles": ["anonymous"]
+    },
+    {
+      "type": "writeAll",
+      "roles": ["anonymous"]
+    }
+  ]
+}

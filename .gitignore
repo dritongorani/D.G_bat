@@ -1,0 +1,10 @@
+# Outils / agents locaux
+.opencode/
+
+# Systèmes
+.DS_Store
+Thumbs.db
+
+# Dépendances et logs
+node_modules/
+*.log

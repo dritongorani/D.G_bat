@@ -1,0 +1,18 @@
+services:
+  kosbos-bat:
+    build: .
+    container_name: kosbos-bat
+    ports:
+      - "8081:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./realisations.html:/usr/share/nginx/html/realisations.html:ro
+      - ./js:/usr/share/nginx/html/js:ro
+      - ./css:/usr/share/nginx/html/css:ro
+      - ./nos-realisations:/usr/share/nginx/html/nos-realisations:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

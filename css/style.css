@@ -1,0 +1,337 @@
+/* ============================================================
+   KoSBoS Bat — Styles personnalisés
+   ============================================================ */
+
+/* ---------- Animations d'apparition au scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Navigation mobile ---------- */
+@media (max-width: 767px) {
+  #menu-principal {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 60;
+  }
+  #menu-principal.active {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: menuSlide 0.25s ease-out;
+  }
+}
+
+@keyframes menuSlide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Galerie ---------- */
+.gallery-item img {
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+/* ---------- Lightbox ---------- */
+#lightbox {
+  display: none;
+}
+#lightbox.open {
+  display: flex;
+}
+#lightbox img {
+  animation: lightboxZoom 0.25s ease-out;
+}
+@keyframes lightboxZoom {
+  from { transform: scale(0.94); opacity: 0.7; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* ---------- Bouton WhatsApp flottant (icône seule) ---------- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: whatsappAppear 0.5s ease-out 1s both;
+}
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+  fill: #ffffff;
+}
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.65);
+}
+.whatsapp-float:active {
+  transform: scale(0.96);
+}
+
+@keyframes whatsappAppear {
+  from { opacity: 0; transform: translateY(16px) scale(0.8); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 767px) {
+  .whatsapp-float {
+    width: 56px;
+    height: 56px;
+    bottom: 18px;
+    right: 18px;
+  }
+  .whatsapp-float svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* ---------- FAQ ---------- */
+.faq-item.open .faq-answer {
+  display: block;
+}
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+.faq-icon {
+  transition: transform 0.25s ease;
+}
+
+/* ---------- Scroll doux ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------- Animations d'entrée du Hero (cascade) ---------- */
+.hero-anim {
+  opacity: 0;
+  transform: translateY(26px);
+  animation: heroFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--hero-delay, 0s);
+  will-change: opacity, transform;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Boutons CTA interactifs (hover, clic, ripple) ---------- */
+.btn-interactive {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.25s ease,
+              background-color 0.25s ease;
+  will-change: transform;
+}
+
+.btn-interactive:hover {
+  transform: translateY(-3px) scale(1.02);
+  filter: brightness(1.04);
+}
+
+.btn-interactive:active {
+  transform: translateY(-1px) scale(0.98);
+  filter: brightness(0.98);
+}
+
+.btn-interactive:focus-visible {
+  outline: 3px solid #e8a33d;
+  outline-offset: 3px;
+}
+
+.btn-interactive .ripple {
+  position: absolute;
+  z-index: -1;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(0);
+  pointer-events: none;
+  animation: rippleEffect 0.65s ease-out forwards;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+/* ---------- Cartes services : révélation en cascade ---------- */
+.service-card {
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease,
+              filter 0.35s ease;
+  will-change: opacity, transform;
+}
+
+.service-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card.is-revealed {
+  transition: opacity 0.35s ease,
+              transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease,
+              filter 0.35s ease;
+}
+
+.service-card:focus-visible {
+  outline: 3px solid #e8a33d;
+  outline-offset: 4px;
+}
+
+.service-card.is-visible:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px -16px rgba(22, 45, 74, 0.3);
+  border-color: rgba(232, 163, 61, 0.6);
+}
+
+.service-card-arrow {
+  position: absolute;
+  bottom: 1.15rem;
+  right: 1.15rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  color: #e8a33d;
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.service-card-arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+.service-card:hover .service-card-arrow,
+.service-card:focus-visible .service-card-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .services-grid.is-ready .service-card.is-visible:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 26px 50px -16px rgba(22, 45, 74, 0.35);
+    border-color: rgba(232, 163, 61, 0.7);
+    z-index: 3;
+  }
+
+  .services-grid.is-hovering-card .service-card.is-visible:not(:hover) {
+    opacity: 0.62;
+    transform: scale(0.985);
+    filter: saturate(0.88);
+  }
+}
+
+/* ---------- Modale service ---------- */
+#service-modal {
+  display: none;
+}
+
+#service-modal.open {
+  display: flex;
+}
+
+#service-modal.open .service-modal-panel {
+  animation: serviceModalIn 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes serviceModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ---------- Mise en évidence du service présélectionné ---------- */
+@keyframes servicePreselectPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 163, 61, 0); }
+  50% { box-shadow: 0 0 0 4px rgba(232, 163, 61, 0.28); }
+}
+
+#form-devis .service-preselected {
+  border-color: #e8a33d;
+  background-color: rgba(232, 163, 61, 0.1);
+  animation: servicePreselectPulse 1.1s ease-in-out 2;
+}
+
+[tabindex='-1']:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-anim {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .btn-interactive {
+    transition: none;
+  }
+  .btn-interactive:hover,
+  .btn-interactive:active {
+    transform: none;
+    filter: none;
+  }
+  .btn-interactive .ripple {
+    display: none;
+  }
+  .service-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  #service-modal.open .service-modal-panel {
+    animation: none;
+  }
+}
