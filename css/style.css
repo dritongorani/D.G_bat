@@ -147,6 +147,45 @@ html {
   }
 }
 
+/* ---------- Rotateur d'accroches du Hero ---------- */
+.hero-rotator {
+  display: grid;
+  align-items: center;
+}
+
+.hero-rotator-sizer {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.hero-rotator-text {
+  grid-area: 1 / 1;
+}
+
+.hero-rotator-text.is-rotating {
+  animation: heroRotatorSwap 0.7s ease;
+}
+
+@keyframes heroRotatorSwap {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  45% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  55% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ---------- Boutons CTA interactifs (hover, clic, ripple) ---------- */
 .btn-interactive {
   position: relative;
@@ -289,6 +328,12 @@ html {
   .hero-anim {
     opacity: 1;
     transform: none;
+    animation: none;
+  }
+  .hero-rotator-sizer {
+    display: none;
+  }
+  .hero-rotator-text.is-rotating {
     animation: none;
   }
   .btn-interactive {

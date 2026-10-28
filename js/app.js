@@ -170,6 +170,60 @@ function initHeroCounters() {
   counters.forEach((el) => observer.observe(el));
 }
 
+/* ---------- Rotation des accroches du Hero ---------- */
+function initHeroRotator() {
+  const rotator = document.getElementById('hero-rotator');
+  const text = document.getElementById('hero-rotator-text');
+  const live = document.getElementById('hero-rotator-live');
+  if (!rotator || !text) return;
+
+  const prefersReduced =
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  const phrases = [
+    {
+      html: 'Un seul interlocuteur pour la <span class="text-kos-accent">rénovation de A à Z</span>',
+      text: 'Un seul interlocuteur pour la rénovation de A à Z'
+    },
+    {
+      html:
+        'Artisan tous corps d\'état : <span class="text-kos-accent">Électricité, Plomberie, Carrelage & Placo</span>',
+      text: 'Artisan tous corps d\'état : Électricité, Plomberie, Carrelage & Placo'
+    },
+    {
+      html:
+        'Intervention rapide à <span class="text-kos-accent">Lyon (69), dans l\'Ain (01) et en Isère (38)</span>',
+      text: 'Intervention rapide à Lyon (69), dans l\'Ain (01) et en Isère (38)'
+    }
+  ];
+
+  let index = 0;
+  const intervalMs = 3500;
+  const fadeMs = 350;
+
+  const showNext = () => {
+    text.classList.remove('is-rotating');
+    void text.offsetWidth;
+    text.classList.add('is-rotating');
+
+    window.setTimeout(() => {
+      index = (index + 1) % phrases.length;
+      text.innerHTML = phrases[index].html;
+      if (live) live.textContent = phrases[index].text;
+    }, fadeMs);
+  };
+
+  let timer = window.setInterval(showNext, intervalMs);
+
+  document.addEventListener('visibilitychange', () => {
+    window.clearInterval(timer);
+    if (document.hidden) return;
+
+    timer = window.setInterval(showNext, intervalMs);
+  });
+}
+
 /* ---------- Effets d'interaction des boutons CTA ---------- */
 function initButtonEffects() {
   document.querySelectorAll('.btn-interactive').forEach((button) => {
@@ -560,6 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initContactLinks();
   initHeroCounters();
+  initHeroRotator();
   initButtonEffects();
   initSmoothScroll();
 });
