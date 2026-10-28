@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Page d'accueil -->
   <url>
     <loc>https://kosbos.fr/</loc>
     <lastmod>2026-10-28</lastmod>
@@ -8,20 +9,7 @@
     <priority>1.0</priority>
   </url>
 
-  <url>
-    <loc>https://kosbos.fr/#services</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://kosbos.fr/#realisations</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
+  <!-- Page Réalisations -->
   <url>
     <loc>https://kosbos.fr/realisations.html</loc>
     <lastmod>2026-10-28</lastmod>
@@ -29,6 +17,7 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Landing Pages Métier (Dossier /pages/) -->
   <url>
     <loc>https://kosbos.fr/pages/plaquiste-isolation-lyon-ain.html</loc>
     <lastmod>2026-10-28</lastmod>
@@ -62,20 +51,6 @@
     <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://kosbos.fr/#devis</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://kosbos.fr/#contact</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
 </urlset>
