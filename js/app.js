@@ -480,12 +480,25 @@ function initServiceInteractions() {
     card.dataset.service = key;
 
     const cta = card.querySelector('.service-card-cta');
-    if (cta) {
+    const pageUrl = cta && cta.tagName === 'A' ? cta.getAttribute('href') : null;
+
+    if (cta && !pageUrl) {
       cta.setAttribute('aria-label', `Cliquez pour plus d'infos sur ${data.title}`);
     }
 
     card.addEventListener('mouseenter', () => grid.classList.add('is-hovering-card'));
     card.addEventListener('mouseleave', () => grid.classList.remove('is-hovering-card'));
+
+    /* Les cartes reliées à une page métier naviguent au clic,
+       sans ouvrir la modale de présentation. */
+    if (pageUrl) {
+      card.classList.add('has-landing-page');
+      card.addEventListener('click', (event) => {
+        if (event.target.closest('a')) return;
+        window.location.href = pageUrl;
+      });
+      return;
+    }
 
     const open = () => openServiceModal(key, cta || card);
     card.addEventListener('click', open);
