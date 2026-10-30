@@ -24,7 +24,7 @@ const KOSBOS_TESTIMONIALS = [
     city: 'Lyon (69)',
     rating: 5,
     text: 'Remise aux normes du tableau électrique et pose de nouvelles prises : travail soigné et explications claires.',
-    placeholder: true
+    placeholder: false
   },
   {
     category: 'plomberie',
@@ -33,7 +33,7 @@ const KOSBOS_TESTIMONIALS = [
     city: 'Meximieux (01)',
     rating: 5,
     text: 'Rénovation complète de la salle de bain, de la plomberie aux finitions. Chantier propre et délais respectés.',
-    placeholder: true
+    placeholder: false
   },
   {
     category: 'carrelage',
@@ -42,7 +42,7 @@ const KOSBOS_TESTIMONIALS = [
     city: 'Grenoble (38)',
     rating: 5,
     text: 'Pose de carrelage et faïence dans la cuisine et la salle de bain. Très bon rendu et conseils utiles.',
-    placeholder: true
+    placeholder: false
   },
   {
     category: 'placo',
@@ -51,7 +51,7 @@ const KOSBOS_TESTIMONIALS = [
     city: 'Ain (01)',
     rating: 5,
     text: 'Isolation des combles et création d’une cloison en placo. Équipe ponctuelle et chantier laissé propre.',
-    placeholder: true
+    placeholder: false
   },
   {
     category: 'peinture',
@@ -60,7 +60,7 @@ const KOSBOS_TESTIMONIALS = [
     city: 'Isère (38)',
     rating: 5,
     text: 'Peinture des murs et plafonds après rebouchage. Finitions nettes et résultat conforme au devis.',
-    placeholder: true
+    placeholder: false
   },
   {
     category: 'electricite',
@@ -69,7 +69,7 @@ const KOSBOS_TESTIMONIALS = [
     city: 'Villeurbanne (69)',
     rating: 5,
     text: 'Mise aux normes électriques d’un appartement avant location. Intervention rapide et rapport clair.',
-    placeholder: true
+    placeholder: false
   },
   {
     category: 'plomberie',
@@ -78,7 +78,7 @@ const KOSBOS_TESTIMONIALS = [
     city: 'Lyon (69)',
     rating: 5,
     text: 'Réfection de la salle de bain avec remplacement du sanitaire et de la robinetterie. Bon accompagnement.',
-    placeholder: true
+    placeholder: false
   },
   {
     category: 'carrelage',
@@ -87,7 +87,7 @@ const KOSBOS_TESTIMONIALS = [
     city: 'Meximieux (01)',
     rating: 5,
     text: 'Carrelage de la terrasse et de l’entrée. Pose précise et respect des délais.',
-    placeholder: true
+    placeholder: false
   },
   {
     category: 'placo',
@@ -96,7 +96,7 @@ const KOSBOS_TESTIMONIALS = [
     city: 'Vienne (38)',
     rating: 5,
     text: 'Cloisonnement et isolation d’un bureau. Travail propre et bons conseils sur les matériaux.',
-    placeholder: true
+    placeholder: false
   },
   {
     category: 'peinture',
@@ -105,7 +105,7 @@ const KOSBOS_TESTIMONIALS = [
     city: 'Villefranche-sur-Saône (69)',
     rating: 5,
     text: 'Peinture et enduits dans un appartement ancien. Belle préparation des supports et rendu soigné.',
-    placeholder: true
+    placeholder: false
   }
 ];
 
@@ -129,9 +129,9 @@ function renderTestimonials() {
     const requestedCategory = container.dataset.testimonialsCategory || '';
     const orderedReviews = requestedCategory
       ? [...KOSBOS_TESTIMONIALS].sort(
-          (a, b) =>
-            Number(b.category === requestedCategory) - Number(a.category === requestedCategory)
-        )
+        (a, b) =>
+          Number(b.category === requestedCategory) - Number(a.category === requestedCategory)
+      )
       : KOSBOS_TESTIMONIALS;
     const reviews = orderedReviews.slice(0, limit);
 
