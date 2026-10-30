@@ -199,7 +199,6 @@ function initTestimonialCarousel(container) {
   const prevButton = container.querySelector('[data-testimonials-prev]');
   const nextButton = container.querySelector('[data-testimonials-next]');
   const status = container.querySelector('[data-testimonials-status]');
-  const hoverTarget = container.closest('section') || carousel;
 
   if (!carousel || !viewport || !track) return;
 
@@ -208,30 +207,18 @@ function initTestimonialCarousel(container) {
 
   const desktopQuery = window.matchMedia('(min-width: 1024px)');
   const tabletQuery = window.matchMedia('(min-width: 768px)');
-  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const hoverQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
 
   let currentIndex = 0;
   let step = 0;
   let maxIndex = 0;
   let autoplayId = null;
   let isHovered = false;
-  let isFocused = false;
   let resizeFrame = 0;
 
   const visibleCount = () => {
     if (desktopQuery.matches) return 3;
     if (tabletQuery.matches) return 2;
     return 1;
-  };
-
-  const hasKeyboardFocus = (element) => {
-    if (!(element instanceof Element)) return false;
-    try {
-      return element.matches(':focus-visible');
-    } catch (error) {
-      return true;
-    }
   };
 
   const measure = () => {
@@ -268,18 +255,29 @@ function initTestimonialCarousel(container) {
     if (nextButton) nextButton.disabled = controlsDisabled;
   };
 
-  const canAutoplay = () =>
-    !motionQuery.matches &&
-    maxIndex > 0 &&
-    !isHovered &&
-    !isFocused &&
-    !document.hidden;
-
   function stopAutoplay() {
     if (autoplayId !== null) {
       window.clearInterval(autoplayId);
       autoplayId = null;
     }
+  }
+
+  function startAutoplay() {
+    // Le survol de la zone du carrousel suspend le défilement.
+    if (maxIndex === 0 || isHovered) {
+      stopAutoplay();
+      return;
+    }
+
+    if (autoplayId !== null) return;
+
+    // Intervalle strict de 3000 ms : passage automatique au groupe suivant.
+    autoplayId = window.setInterval(goToNextGroup, 3000);
+  }
+
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay();
   }
 
   function goToNextGroup() {
@@ -290,28 +288,10 @@ function initTestimonialCarousel(container) {
       return;
     }
 
-    // Prochain groupe d'avis visibles (3 sur desktop), puis retour au début.
-    // Si la fin ne permet pas d'afficher le groupe complet, on cale la
-    // dernière vue sur les dernières cartes pour ne masquer aucun avis.
+    // Après le dernier groupe (qui contient le 10e avis), retour au premier avis.
+    // Si la fin ne permet pas d'afficher un groupe complet, on affiche les
+    // dernières cartes avant de boucler, pour ne masquer aucun avis.
     goTo(currentIndex === maxIndex ? 0 : maxIndex, false);
-  }
-
-  function syncAutoplay() {
-    if (!canAutoplay()) {
-      stopAutoplay();
-      return;
-    }
-
-    if (autoplayId !== null) return;
-
-    autoplayId = window.setInterval(() => {
-      goToNextGroup();
-    }, 3000);
-  }
-
-  function restartAutoplay() {
-    stopAutoplay();
-    syncAutoplay();
   }
 
   function goTo(index, restart = true) {
@@ -327,7 +307,7 @@ function initTestimonialCarousel(container) {
     measure();
     setTransform(false);
     updateStatus();
-    syncAutoplay();
+    startAutoplay();
   }
 
   measure();
@@ -335,10 +315,12 @@ function initTestimonialCarousel(container) {
   updateStatus();
 
   if (prevButton) {
-    prevButton.addEventListener('click', () => goTo(currentIndex - 1));
+    // Chaque clic manuel repart sur un cycle automatique de 3000 ms.
+    prevButton.addEventListener('click', () => goTo(currentIndex - 1, true));
   }
   if (nextButton) {
-    nextButton.addEventListener('click', () => goTo(currentIndex + 1));
+    // Chaque clic manuel repart sur un cycle automatique de 3000 ms.
+    nextButton.addEventListener('click', () => goTo(currentIndex + 1, true));
   }
 
   viewport.addEventListener('keydown', (event) => {
@@ -352,30 +334,15 @@ function initTestimonialCarousel(container) {
     }
   });
 
-  // Pause au survol uniquement sur les appareils équipés d'une souris :
-  // cela évite qu'un tap tactile ne fige le carrousel sur mobile.
-  if (hoverQuery.matches) {
-    hoverTarget.addEventListener('mouseenter', () => {
-      isHovered = true;
-      syncAutoplay();
-    });
-    hoverTarget.addEventListener('mouseleave', () => {
-      isHovered = false;
-      syncAutoplay();
-    });
-  }
-  carousel.addEventListener('focusin', (event) => {
-    if (hasKeyboardFocus(event.target)) {
-      isFocused = true;
-      syncAutoplay();
-    }
+  // Pause du timer dès que la souris entre dans la zone du carrousel,
+  // puis relance automatique immédiate lorsqu'elle en sort.
+  carousel.addEventListener('mouseenter', () => {
+    isHovered = true;
+    stopAutoplay();
   });
-  carousel.addEventListener('focusout', (event) => {
-    const nextFocus = event.relatedTarget;
-    if (!(nextFocus instanceof Node) || !carousel.contains(nextFocus)) {
-      isFocused = false;
-      syncAutoplay();
-    }
+  carousel.addEventListener('mouseleave', () => {
+    isHovered = false;
+    restartAutoplay();
   });
 
   window.addEventListener('resize', () => {
@@ -383,19 +350,10 @@ function initTestimonialCarousel(container) {
     resizeFrame = window.requestAnimationFrame(updateLayout);
   });
 
-  document.addEventListener('visibilitychange', syncAutoplay);
+  isHovered = carousel.matches(':hover');
 
-  if (typeof motionQuery.addEventListener === 'function') {
-    motionQuery.addEventListener('change', syncAutoplay);
-  }
-
-  isFocused =
-    carousel.contains(document.activeElement) && hasKeyboardFocus(document.activeElement);
-  isHovered = hoverQuery.matches && hoverTarget.matches(':hover');
-
-  // Rotation automatique toutes les 3 secondes, dès l'initialisation.
-  // Le survol de la section, le focus clavier et l'onglet masqué la mettent en pause.
-  syncAutoplay();
+  // Rotation automatique obligatoire toutes les 3 secondes dès l'initialisation.
+  startAutoplay();
 }
 
 if (document.readyState === 'loading') {
