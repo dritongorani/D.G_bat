@@ -16,7 +16,7 @@ function initHomeGallery() {
             aria-label="Agrandir la photo de réalisation ${i + 1}">
       <img src="${src}"
            alt="${typeof GALLERY_ALTS !== 'undefined' ? GALLERY_ALTS[i % GALLERY_ALTS.length] : 'Réalisation rénovation intérieure KoSBoS Bat'}"
-           class="w-full h-full object-cover"
+           class="project-img w-full h-full object-cover"
            loading="lazy" decoding="async"
            onerror="this.closest('.gallery-item').style.display='none';">
       <div class="absolute inset-0 bg-kos-dark/45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

@@ -10,6 +10,7 @@ services:
       - ./robots.txt:/usr/share/nginx/html/robots.txt:ro
       - ./sitemap.xml:/usr/share/nginx/html/sitemap.xml:ro
       - ./CNAME:/usr/share/nginx/html/CNAME:ro
+      - ./pages:/usr/share/nginx/html/pages:ro
       - ./assets:/usr/share/nginx/html/assets:ro
       - ./js:/usr/share/nginx/html/js:ro
       - ./css:/usr/share/nginx/html/css:ro
